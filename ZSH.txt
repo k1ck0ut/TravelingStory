@@ -1,0 +1,11 @@
+nano ~/.zshrc
+
+cd() {
+    builtin cd "$@" || return
+    if [ -f README ]; then
+        sell README
+    fi
+}
+
+source ~/.zshrc
+
