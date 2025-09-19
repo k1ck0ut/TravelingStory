@@ -2,10 +2,15 @@ nano ~/.zshrc
 
 cd() {
     builtin cd "$@" || return
-    if [ -f README ]; then
-        sell README
-    fi
+    files=("README" "Parkinfo" "Lakeinfo" "insidethehouse" "relax" "KitchenOptions" "Storeinfo")
+
+    for f in "${files[@]}"; do
+        if [ -f "$f" ]; then
+            less "$f"
+        fi
+    done
 }
+
 
 source ~/.zshrc
 
