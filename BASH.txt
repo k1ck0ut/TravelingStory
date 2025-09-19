@@ -1,0 +1,14 @@
+nano ~/.bashrc
+
+cd() {
+  builtin cd "$@" || return
+  local files=("README" "Parkinfo" "Lakeinfo" "insidethehouse" "relax" "KitchenOptions" "Storeinfo")
+  for f in "${files[@]}"; do
+    if [ -f "$f" ]; then
+      less "$f"
+    fi
+  done
+}
+
+source ~/.bashrc
+
